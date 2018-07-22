@@ -74,6 +74,16 @@ sub save_para {
 
 sub parse_line {
     my ($self, $line) = @_;
+    if ($line =~ /^(.*)_(\w+)_(.*)$/) {
+        return [
+            $1, 
+            {
+                tag => 'b',
+                cont => $2,
+            },
+            $3
+        ];
+    }
     return $line;
 }
 

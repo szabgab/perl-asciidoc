@@ -2,14 +2,28 @@
    "content" : [
       {
          "cont" : [
-            "Fee _text_\n",
+            [
+               "Fee ",
+               {
+                  "cont" : "text",
+                  "tag" : "b"
+               },
+               ""
+            ],
             "second line\n"
          ],
          "tag" : "p"
       },
       {
          "cont" : [
-            "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>>\n"
+            [
+               "More ",
+               {
+                  "cont" : "text",
+                  "tag" : "b"
+               },
+               "  and an internal link: <<doc/developer#,Extend Asciidoc>>"
+            ]
          ],
          "tag" : "p"
       },
