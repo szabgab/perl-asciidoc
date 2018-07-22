@@ -77,12 +77,12 @@ sub parse_line {
     if ($line =~ /^(.*)_(\w+)_(.*)$/) {
         my  ($pre, $cont, $post) = ($1, $2, $3);
         return [
-            $pre,
+            $self->parse_line($pre),
             {
                 tag => 'b',
                 cont => $cont,
             },
-            $post,
+            $self->parse_line($post),
         ];
     }
     return $line;
