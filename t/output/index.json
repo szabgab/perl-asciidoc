@@ -1,3 +1,7 @@
 {
-   "header" : {}
+   "header" : {
+      "layout" : "documentation",
+      "section" : "doc",
+      "title" : "Sample title"
+   }
 }
