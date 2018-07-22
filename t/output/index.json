@@ -2,36 +2,36 @@
    "content" : [
       {
          "cont" : [
-            [
-               "Fee ",
-               {
-                  "cont" : "text",
-                  "tag" : "b"
-               },
-               ""
-            ],
+            "Fee ",
+            {
+               "cont" : "text",
+               "tag" : "b"
+            },
+            "",
             "second line\n"
          ],
          "tag" : "p"
       },
       {
          "cont" : [
-            [
-               "More ",
-               {
-                  "cont" : "text",
-                  "tag" : "b"
-               },
-               [
-                  "  and an internal link: ",
-                  {
-                     "cont" : "Extend Asciidoc",
-                     "link" : "doc/developer#",
-                     "tag" : "a"
-                  },
-                  ""
-               ]
-            ]
+            "More ",
+            {
+               "cont" : "text",
+               "tag" : "b"
+            },
+            "  and an internal link: ",
+            {
+               "cont" : "Extend Asciidoc",
+               "link" : "doc/developer#",
+               "tag" : "a"
+            },
+            " another ",
+            {
+               "cont" : "Other Link",
+               "link" : "../install",
+               "tag" : "a"
+            },
+            " and more"
          ],
          "tag" : "p"
       },

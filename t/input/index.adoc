@@ -16,7 +16,7 @@ endif::[]
 Fee _text_
 second line
 
-More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>>
+More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more
 
 == Title with 2 equal characters
 

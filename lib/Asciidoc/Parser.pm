@@ -89,19 +89,20 @@ sub parse_line {
     my ($self, $line) = @_;
     if ($line =~ /^(.*)_(\w+)_(.*)$/) {
         my  ($pre, $cont, $post) = ($1, $2, $3);
-        return [
+        return (
             $self->parse_line($pre),
             {
                 tag => 'b',
                 cont => $cont,
             },
             $self->parse_line($post),
-        ];
+        );
     }
-    # <<doc/developer#,Extend Asciidoc>>
-    if ($line =~ /^(.*)<<([^,>]*),([^>]*)>>(.*)$/) {
-        my  ($pre, $link, $anchor, $post) = ($1, $2, $3, $4);
-        return [
+
+    # link:../install[Other Link]
+    if ($line =~ /^(.*) link: ([^\[]+)  \[([^\]]+)\]   (.*)$/x) {
+        my ($pre, $link, $anchor, $post) = ($1, $2, $3, $4);
+        return (
             $self->parse_line($pre),
             {
                 tag => 'a',
@@ -109,7 +110,21 @@ sub parse_line {
                 cont => $anchor,
             },
             $self->parse_line($post),
-        ];
+        );
+    }
+
+    # <<doc/developer#,Extend Asciidoc>>
+    if ($line =~ /^(.*)<<([^,>]*),([^>]*)>>(.*)$/) {
+        my  ($pre, $link, $anchor, $post) = ($1, $2, $3, $4);
+        return (
+            $self->parse_line($pre),
+            {
+                tag => 'a',
+                link => $link,
+                cont => $anchor,
+            },
+            $self->parse_line($post),
+        );
     }
     return $line;
 }
