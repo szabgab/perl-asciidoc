@@ -48,29 +48,29 @@ sub parse_file {
 
         if ($line =~ /^\s*$/) {
             next if not @{$self->{para}}; # before first para?
-            if (@{$self->{para}}) {
-                push @{$self->{dom}{content}}, {
-                    tag => 'p',
-                    cont => $self->{para},
-                };
-                $self->{para} = [];
-                next;
-            }
+            $self->save_para and next;
         }
 
         push @{$self->{para}}, $self->parse_line($line);
     }
 
-    if (@{$self->{para}}) {
-        push @{$self->{dom}{content}}, {
-            tag => 'p',
-            cont => $self->{para},
-        };
-        $self->{para} = [];
-    }
+    $self->save_para;
 
     return $self->{dom};
 }
+
+sub save_para {
+    my ($self) = @_;
+    return if not @{$self->{para}};
+
+    push @{$self->{dom}{content}}, {
+        tag => 'p',
+        cont => $self->{para},
+    };
+    $self->{para} = [];
+    return 1;
+}
+
 
 sub parse_line {
     my ($self, $line) = @_;
