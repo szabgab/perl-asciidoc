@@ -15,7 +15,7 @@ use Asciidoc::Parser;
 my $p = Asciidoc::Parser->new;
 foreach my $file (@ARGV) {
     my $content = $p->parse_file($file);
-    my $json_text = to_json( $content, { ascii => 1, pretty => 1 } ); 
+    my $json_text = to_json( $content, { ascii => 1, pretty => 1, canonical => 1 } ); 
     if ($opt{json}) {
         open my $fh, '>', $opt{json} or die;
         print $fh $json_text;

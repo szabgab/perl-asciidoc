@@ -1,8 +1,8 @@
 {
    "content" : [
       {
-         "text" : "Title with 2 equal characters",
-         "tag" : "h2"
+         "tag" : "h2",
+         "text" : "Title with 2 equal characters"
       },
       {
          "tag" : "h3",
@@ -10,8 +10,8 @@
       }
    ],
    "header" : {
-      "title" : "Sample title",
       "layout" : "documentation",
-      "section" : "doc"
+      "section" : "doc",
+      "title" : "Sample title"
    }
 }
