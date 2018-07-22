@@ -14,6 +14,16 @@ sub parse_file {
     my ($self, $filename) = @_;
     my %content;
 
+    open my $fh, '<:encoding(UTF-8)', $filename or die;
+    while (my $line = <$fh>) {
+        if ($line =~ /^---$/) {
+            if (not $content{header}) {
+                $content{header} = {};
+                next;
+            }
+        }
+    }
+
     return \%content;
 }
 
