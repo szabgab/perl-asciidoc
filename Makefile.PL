@@ -13,5 +13,6 @@ WriteMakefile(
 	PL_FILES  => {},
 	PREREQ_PM => {
 		'Test::More'          => 0,
+		'JSON'                => 0,
 	},
 );
