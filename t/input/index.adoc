@@ -1,0 +1,24 @@
+---
+layout: documentation
+title: Sample title
+section: doc
+---
+
+
+Fee _text_
+second line
+
+More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>>
+
+== Title with 2 equal characters
+
+Free text.
+
+=== Title with 3 equal characters
+
+Free text
+
+'''
+++++
+include::_partials/_footer.html[]
+++++
