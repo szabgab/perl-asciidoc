@@ -16,6 +16,7 @@ sub parse_file {
 
     open my $fh, '<:encoding(UTF-8)', $filename or die;
     my $in_header;
+    my @para;
     while (my $line = <$fh>) {
         if ($line =~ /^---$/) {
             if (not $dom{header}) {
@@ -44,6 +45,28 @@ sub parse_file {
         if ($line =~ /^'''$/) {
             last;
         }
+
+        if ($line =~ /^\s*$/) {
+            next if not @para; # before first para?
+            if (@para) {
+                push @{$dom{content}}, {
+                    tag => 'p',
+                    cont => [ @para ],
+                };
+                @para = ();
+                next;
+            }
+        }
+
+        push @para, $line;
+    }
+
+    if (@para) {
+        push @{$dom{content}}, {
+            tag => 'p',
+            cont => [ @para ],
+        };
+        @para = ();
     }
 
     return \%dom;

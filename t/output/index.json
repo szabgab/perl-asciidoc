@@ -1,12 +1,37 @@
 {
    "content" : [
       {
+         "cont" : [
+            "Fee _text_\n",
+            "second line\n"
+         ],
+         "tag" : "p"
+      },
+      {
+         "cont" : [
+            "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>>\n"
+         ],
+         "tag" : "p"
+      },
+      {
          "tag" : "h2",
          "text" : "Title with 2 equal characters"
       },
       {
+         "cont" : [
+            "Free text.\n"
+         ],
+         "tag" : "p"
+      },
+      {
          "tag" : "h3",
          "text" : "Title with 3 equal characters"
+      },
+      {
+         "cont" : [
+            "More text\n"
+         ],
+         "tag" : "p"
       }
    ],
    "header" : {
