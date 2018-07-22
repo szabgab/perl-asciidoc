@@ -33,6 +33,19 @@ sub parse_file {
             $self->{dom}{header}{$1} = $2;
             next;
         }
+
+        # for now we totally skip any ifdef section
+        if ($line =~ /^ifdef::/) {
+            $self->{in_def} = 1;
+            next;
+        }
+        if ($self->{in_def}) {
+            if ($line =~ /^endif::/) {
+                $self->{in_def} = 0;
+            }
+            next;
+        }
+
         if ($line =~ /^(=+)\s+(.*)$/) {
             push @{$self->{dom}{content}}, {
                 tag => 'h' . length($1),

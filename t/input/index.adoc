@@ -3,6 +3,14 @@ layout: documentation
 title: Sample title
 section: doc
 ---
+ifdef::backend-html5[]
+:description:
+:author:
+:email: address@googlegroups.com
+:sectanchors:
+:toc: left
+:notitle:
+endif::[]
 
 
 Fee _text_
