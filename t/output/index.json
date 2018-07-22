@@ -1,7 +1,17 @@
 {
+   "content" : [
+      {
+         "text" : "Title with 2 equal characters",
+         "tag" : "h2"
+      },
+      {
+         "tag" : "h3",
+         "text" : "Title with 3 equal characters"
+      }
+   ],
    "header" : {
+      "title" : "Sample title",
       "layout" : "documentation",
-      "section" : "doc",
-      "title" : "Sample title"
+      "section" : "doc"
    }
 }
