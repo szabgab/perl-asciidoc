@@ -75,13 +75,14 @@ sub save_para {
 sub parse_line {
     my ($self, $line) = @_;
     if ($line =~ /^(.*)_(\w+)_(.*)$/) {
+        my  ($pre, $cont, $post) = ($1, $2, $3);
         return [
-            $1, 
+            $pre,
             {
                 tag => 'b',
-                cont => $2,
+                cont => $cont,
             },
-            $3
+            $post,
         ];
     }
     return $line;
