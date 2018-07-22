@@ -39,6 +39,11 @@ sub parse_file {
             };
             next;
         }
+
+        # for now desregard any extra instructions
+        if ($line =~ /^'''$/) {
+            last;
+        }
     }
 
     return \%dom;
