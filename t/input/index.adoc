@@ -17,7 +17,6 @@ Free text.
 === Title with 3 equal characters
 
 More text
-
 '''
 ++++
 include::_partials/_footer.html[]
