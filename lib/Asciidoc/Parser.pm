@@ -85,6 +85,19 @@ sub parse_line {
             $self->parse_line($post),
         ];
     }
+    # <<doc/developer#,Extend Asciidoc>>
+    if ($line =~ /^(.*)<<([^,>]*),([^>]*)>>(.*)$/) {
+        my  ($pre, $link, $anchor, $post) = ($1, $2, $3, $4);
+        return [
+            $self->parse_line($pre),
+            {
+                tag => 'a',
+                link => $link,
+                cont => $anchor,
+            },
+            $self->parse_line($post),
+        ];
+    }
     return $line;
 }
 

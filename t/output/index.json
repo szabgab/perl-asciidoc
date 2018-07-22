@@ -22,7 +22,15 @@
                   "cont" : "text",
                   "tag" : "b"
                },
-               "  and an internal link: <<doc/developer#,Extend Asciidoc>>"
+               [
+                  "  and an internal link: ",
+                  {
+                     "cont" : "Extend Asciidoc",
+                     "link" : "doc/developer#",
+                     "tag" : "a"
+                  },
+                  ""
+               ]
             ]
          ],
          "tag" : "p"
