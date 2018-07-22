@@ -58,7 +58,7 @@ sub parse_file {
             }
         }
 
-        push @para, $line;
+        push @para, $self->parse_line($line);
     }
 
     if (@para) {
@@ -70,6 +70,11 @@ sub parse_file {
     }
 
     return \%dom;
+}
+
+sub parse_line {
+    my ($self, $line) = @_;
+    return $line;
 }
 
 1;
