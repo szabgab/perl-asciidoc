@@ -7,8 +7,8 @@
                "cont" : "text",
                "tag" : "b"
             },
-            "",
-            "second line"
+            " ",
+            "second line "
          ],
          "tag" : "p"
       },
@@ -31,7 +31,7 @@
                "link" : "../install",
                "tag" : "a"
             },
-            " and more"
+            " and more "
          ],
          "tag" : "p"
       },
@@ -41,7 +41,7 @@
       },
       {
          "cont" : [
-            "Free text."
+            "Free text. "
          ],
          "tag" : "p"
       },
@@ -51,7 +51,7 @@
       },
       {
          "cont" : [
-            "More text"
+            "More text "
          ],
          "tag" : "p"
       }
