@@ -65,7 +65,8 @@ sub parse_file {
             $self->save_para and next;
         }
 
-        push @{$self->{para}}, $self->parse_line("$line ");
+        push @{$self->{para}}, ' ' if @{ $self->{para} };
+        push @{$self->{para}}, $self->parse_line($line);
     }
 
     $self->save_para;
