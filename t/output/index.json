@@ -8,7 +8,7 @@
                "tag" : "b"
             },
             "",
-            "second line\n"
+            "second line"
          ],
          "tag" : "p"
       },
@@ -41,7 +41,7 @@
       },
       {
          "cont" : [
-            "Free text.\n"
+            "Free text."
          ],
          "tag" : "p"
       },
@@ -51,7 +51,7 @@
       },
       {
          "cont" : [
-            "More text\n"
+            "More text"
          ],
          "tag" : "p"
       }

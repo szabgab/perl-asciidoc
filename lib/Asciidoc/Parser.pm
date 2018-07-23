@@ -18,6 +18,7 @@ sub parse_file {
     my $in_header;
     $self->{para} = [];
     while (my $line = <$fh>) {
+        chomp $line;
         if ($line =~ /^---$/) {
             if (not $self->{dom}{header}) {
                 $self->{dom}{header} = {};
