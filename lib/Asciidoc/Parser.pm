@@ -16,7 +16,7 @@ sub parse_file {
 
     open my $fh, '<:encoding(UTF-8)', $filename or die;
     my $in_header;
-    $self->{para} = [];
+    $self->{para} = '';
     while (my $line = <$fh>) {
         chomp $line;
         if ($line =~ /^---$/) {
@@ -61,12 +61,14 @@ sub parse_file {
         }
 
         if ($line =~ /^\s*$/) {
-            next if not @{$self->{para}}; # before first para?
+            next if not $self->{para}; # before first para?
             $self->save_para and next;
         }
 
-        push @{$self->{para}}, ' ' if @{ $self->{para} };
-        push @{$self->{para}}, $self->parse_line($line);
+        #push @{$self->{para}}, ' ' if @{ $self->{para} };
+        $self->{para} .= ' ' if $self->{para};
+        $self->{para} .= $line;
+        #push @{$self->{para}}, $self->parse_line($line);
     }
 
     $self->save_para;
@@ -76,13 +78,13 @@ sub parse_file {
 
 sub save_para {
     my ($self) = @_;
-    return if not @{$self->{para}};
+    return if not $self->{para};
 
     push @{$self->{dom}{content}}, {
         tag => 'p',
-        cont => $self->{para},
+        cont => [ $self->parse_line($self->{para}) ],
     };
-    $self->{para} = [];
+    $self->{para} = '';
     return 1;
 }
 
