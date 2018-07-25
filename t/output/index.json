@@ -40,7 +40,13 @@
       },
       {
          "cont" : [
-            "Free text."
+            "Free text. ",
+            {
+               "cont" : "Broken Title",
+               "link" : "/local",
+               "tag" : "a"
+            },
+            " postfix."
          ],
          "tag" : "p"
       },

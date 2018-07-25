@@ -20,7 +20,8 @@ More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another li
 
 == Title with 2 equal characters
 
-Free text.
+Free text. link:/local[Broken
+Title] postfix.
 
 === Title with 3 equal characters
 
