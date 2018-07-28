@@ -23,6 +23,12 @@ More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another li
 Free text. link:/local[Broken
 Title] postfix.
 
+////
+some comment
+
+3rd line of comment
+////
+
 === Title with 3 equal characters
 
 More text

@@ -19,6 +19,18 @@ sub parse_file {
     $self->{para} = '';
     while (my $line = <$fh>) {
         chomp $line;
+
+        if ($self->{in_comment}) {
+            if ($line =~ m{^////$}) {
+                $self->{in_comment} = 0;
+            }
+            next;
+        }
+        if ($line =~ m{^////$}) {
+            $self->{in_comment} = 1;
+            next;
+        }
+
         if ($line =~ /^---$/) {
             if (not $self->{dom}{header}) {
                 $self->{dom}{header} = {};
