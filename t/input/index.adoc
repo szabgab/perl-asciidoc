@@ -23,6 +23,9 @@ More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another li
 Free text. link:/local[Broken
 Title] postfix.
 
+* first list item
+* second list item
+
 ////
 some comment
 

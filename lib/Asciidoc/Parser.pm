@@ -58,6 +58,14 @@ sub parse_file {
             next;
         }
 
+        if ($line =~ /^\*\s+(.*)/) {
+            push @{$self->{dom}{content}}, {
+                tag => 'li',
+                cont => [ $self->parse_line($line) ],
+            };
+            next;
+        }
+
         # for now desregard any extra instructions
         if ($line =~ /^'''$/) {
             last;

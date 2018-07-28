@@ -51,6 +51,18 @@
          "tag" : "p"
       },
       {
+         "cont" : [
+            "* first list item"
+         ],
+         "tag" : "li"
+      },
+      {
+         "cont" : [
+            "* second list item"
+         ],
+         "tag" : "li"
+      },
+      {
          "tag" : "h3",
          "text" : "Title with 3 equal characters"
       },
