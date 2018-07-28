@@ -64,8 +64,11 @@ sub parse_file {
         }
 
         if ($line =~ /^\s*$/) {
-            next if not $self->{para}; # before first para?
-            $self->save_para and next;
+            # before first para?
+            if ($self->{para}) {
+                $self->save_para and next;
+            }
+            next;
         }
 
         #push @{$self->{para}}, ' ' if @{ $self->{para} };
