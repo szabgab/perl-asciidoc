@@ -20,16 +20,7 @@ sub parse_file {
     while (my $line = <$fh>) {
         chomp $line;
 
-        if ($self->{in_comment}) {
-            if ($line =~ m{^////$}) {
-                $self->{in_comment} = 0;
-            }
-            next;
-        }
-        if ($line =~ m{^////$}) {
-            $self->{in_comment} = 1;
-            next;
-        }
+        $self->parse_comment($line) and next;
 
         if ($line =~ /^---$/) {
             if (not $self->{dom}{header}) {
@@ -87,6 +78,22 @@ sub parse_file {
 
     return $self->{dom};
 }
+
+sub parse_comment {
+    my ($self, $line) = @_;
+    if ($self->{in_comment}) {
+        if ($line =~ m{^////$}) {
+            $self->{in_comment} = 0;
+        }
+        return 1;
+    }
+    if ($line =~ m{^////$}) {
+        $self->{in_comment} = 1;
+        return 1;
+    }
+    return;
+}
+
 
 sub save_para {
     my ($self) = @_;
