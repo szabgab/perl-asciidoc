@@ -72,6 +72,11 @@
          "tag" : "code"
       },
       {
+         "cont" : "use strict;\nuse warnings;\n",
+         "lang" : "perl",
+         "tag" : "code"
+      },
+      {
          "cont" : [
             "More text"
          ],

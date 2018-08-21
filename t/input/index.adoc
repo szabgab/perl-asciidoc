@@ -40,6 +40,12 @@ brew install jenkins
   verbatim text for code
 ----
 
+[source, perl]
+----
+use strict;
+use warnings;
+----
+
 
 More text
 '''

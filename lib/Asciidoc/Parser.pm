@@ -58,7 +58,7 @@ sub parse_file {
             next;
         }
 
-        if ($line =~ /^\[source,(\w+)\]\s*$/) {
+        if ($line =~ /^\[source,\s*(\w+)\]\s*$/) {
             $self->{verbatim} = $1;
             next;
         }
