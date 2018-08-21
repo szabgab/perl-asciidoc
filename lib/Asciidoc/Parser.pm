@@ -70,6 +70,7 @@ sub parse_file {
                     lang => $self->{verbatim},
                 };
                 $self->{in_verbatim} = 0;
+                delete $self->{verbatim};
                 next;
             }
             if ($self->{verbatim}) {
