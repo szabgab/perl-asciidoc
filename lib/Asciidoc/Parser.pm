@@ -58,8 +58,8 @@ sub parse_file {
             next;
         }
 
-        if ($line =~ /^\[source,\s*(\w+)\]\s*$/) {
-            $self->{verbatim} = $1;
+        if ($line =~ /^\[source(,\s*(\w+))?\]\s*$/) {
+            $self->{verbatim} = $2;
             next;
         }
         if ($line eq '----') {
@@ -73,7 +73,7 @@ sub parse_file {
                 delete $self->{verbatim};
                 next;
             }
-            if ($self->{verbatim}) {
+            if (exists $self->{verbatim}) {
                 $self->{in_verbatim} = 1;
                 $self->{verbatim_cont} = '';
                 next;

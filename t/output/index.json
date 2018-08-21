@@ -77,6 +77,11 @@
          "tag" : "code"
       },
       {
+         "cont" : "$ no language\n  provide\n  but it is still verbatim\n",
+         "lang" : null,
+         "tag" : "code"
+      },
+      {
          "cont" : [
             "More text"
          ],

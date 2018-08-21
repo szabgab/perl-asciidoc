@@ -46,6 +46,13 @@ use strict;
 use warnings;
 ----
 
+[source]
+----
+$ no language
+  provide
+  but it is still verbatim
+----
+
 
 More text
 '''
