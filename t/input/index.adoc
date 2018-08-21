@@ -34,6 +34,13 @@ some comment
 
 === Title with 3 equal characters
 
+[source,bash]
+----
+brew install jenkins
+  verbatim text for code
+----
+
+
 More text
 '''
 ++++

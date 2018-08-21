@@ -58,6 +58,31 @@ sub parse_file {
             next;
         }
 
+        if ($line =~ /^\[source,(\w+)\]\s*$/) {
+            $self->{verbatim} = $1;
+            next;
+        }
+        if ($line eq '----') {
+            if ($self->{in_verbatim}) {
+                push @{$self->{dom}{content}}, {
+                    tag => 'code',
+                    cont => $self->{verbatim_cont},
+                    lang => $self->{verbatim},
+                };
+                $self->{in_verbatim} = 0;
+                next;
+            }
+            if ($self->{verbatim}) {
+                $self->{in_verbatim} = 1;
+                $self->{verbatim_cont} = '';
+                next;
+            }
+        }
+        if ($self->{in_verbatim}) {
+            $self->{verbatim_cont} .= "$line\n";
+            next;
+        }
+
         if ($line =~ /^\*\s+(.*)/) {
             push @{$self->{dom}{content}}, {
                 tag => 'li',

@@ -67,6 +67,11 @@
          "text" : "Title with 3 equal characters"
       },
       {
+         "cont" : "brew install jenkins\n  verbatim text for code\n",
+         "lang" : "bash",
+         "tag" : "code"
+      },
+      {
          "cont" : [
             "More text"
          ],
