@@ -58,7 +58,7 @@ sub parse_file {
             next;
         }
 
-        $self->handle_source($line) and next;
+        $self->handle_source($line, 'code') and next;
 
         if ($line =~ /^\*\s+(.*)/) {
             push @{$self->{dom}{content}}, {
@@ -166,30 +166,33 @@ sub parse_line {
 }
 
 sub handle_source {
-    my ($self, $line) = @_;
-    if ($line =~ /^\[source(,\s*(\w+))?\]\s*$/) {
-        $self->{verbatim} = $2;
+    my ($self, $line, $type) = @_;
+    my $re = qr/^\[source(,\s*(\w+))?\]\s*$/;
+    my $sep = '----';
+
+    if ($line =~ $re) {
+        $self->{$type} = $2;
         return 1;
     }
-    if ($line eq '----') {
-        if ($self->{in_verbatim}) {
+    if ($line eq $sep) {
+        if ($self->{"in_$type"}) {
             push @{$self->{dom}{content}}, {
-                tag => 'code',
-                cont => $self->{verbatim_cont},
-                lang => $self->{verbatim},
+                tag => $type,
+                cont => $self->{"cont_$type"},
+                lang => $self->{$type},
             };
-            $self->{in_verbatim} = 0;
-            delete $self->{verbatim};
+            $self->{"in_$type"} = 0;
+            delete $self->{$type};
             return 1;
         }
-        if (exists $self->{verbatim}) {
-            $self->{in_verbatim} = 1;
-            $self->{verbatim_cont} = '';
+        if (exists $self->{$type}) {
+            $self->{"in_$type"} = 1;
+            $self->{"cont_$type"} = '';
             return 1;
         }
     }
-    if ($self->{in_verbatim}) {
-        $self->{verbatim_cont} .= "$line\n";
+    if ($self->{"in_$type"}) {
+        $self->{"cont_$type"} .= "$line\n";
         return 1;
     }
 
