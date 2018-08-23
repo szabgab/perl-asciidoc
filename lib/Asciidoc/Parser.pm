@@ -58,31 +58,7 @@ sub parse_file {
             next;
         }
 
-        if ($line =~ /^\[source(,\s*(\w+))?\]\s*$/) {
-            $self->{verbatim} = $2;
-            next;
-        }
-        if ($line eq '----') {
-            if ($self->{in_verbatim}) {
-                push @{$self->{dom}{content}}, {
-                    tag => 'code',
-                    cont => $self->{verbatim_cont},
-                    lang => $self->{verbatim},
-                };
-                $self->{in_verbatim} = 0;
-                delete $self->{verbatim};
-                next;
-            }
-            if (exists $self->{verbatim}) {
-                $self->{in_verbatim} = 1;
-                $self->{verbatim_cont} = '';
-                next;
-            }
-        }
-        if ($self->{in_verbatim}) {
-            $self->{verbatim_cont} .= "$line\n";
-            next;
-        }
+        $self->handle_source($line) and next;
 
         if ($line =~ /^\*\s+(.*)/) {
             push @{$self->{dom}{content}}, {
@@ -188,6 +164,38 @@ sub parse_line {
     }
     return $line;
 }
+
+sub handle_source {
+    my ($self, $line) = @_;
+    if ($line =~ /^\[source(,\s*(\w+))?\]\s*$/) {
+        $self->{verbatim} = $2;
+        return 1;
+    }
+    if ($line eq '----') {
+        if ($self->{in_verbatim}) {
+            push @{$self->{dom}{content}}, {
+                tag => 'code',
+                cont => $self->{verbatim_cont},
+                lang => $self->{verbatim},
+            };
+            $self->{in_verbatim} = 0;
+            delete $self->{verbatim};
+            return 1;
+        }
+        if (exists $self->{verbatim}) {
+            $self->{in_verbatim} = 1;
+            $self->{verbatim_cont} = '';
+            return 1;
+        }
+    }
+    if ($self->{in_verbatim}) {
+        $self->{verbatim_cont} .= "$line\n";
+        return 1;
+    }
+
+    return;
+}
+
 
 1;
 
