@@ -59,6 +59,7 @@ sub parse_file {
         }
 
         $self->handle_source($line, 'code') and next;
+        $self->handle_source($line, 'special') and next;
 
         if ($line =~ /^\*\s+(.*)/) {
             push @{$self->{dom}{content}}, {
@@ -167,11 +168,16 @@ sub parse_line {
 
 sub handle_source {
     my ($self, $line, $type) = @_;
-    my $re = qr/^\[source(,\s*(\w+))?\]\s*$/;
+    my $re = qr/^\[source(?:,\s*(\w+))?\]\s*$/;
     my $sep = '----';
 
+    if ($type eq 'special') {
+        $re = qr/^\[(CAUTION|NOTE)\]$/;
+        $sep = '====';
+    }
+
     if ($line =~ $re) {
-        $self->{$type} = $2;
+        $self->{$type} = $1;
         return 1;
     }
     if ($line eq $sep) {

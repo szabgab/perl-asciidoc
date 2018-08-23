@@ -82,6 +82,30 @@
          "tag" : "code"
       },
       {
+         "tag" : "h3",
+         "text" : "Special sections"
+      },
+      {
+         "cont" : "This text is to be handled as a paragraph of type caution.\n",
+         "lang" : "CAUTION",
+         "tag" : "special"
+      },
+      {
+         "cont" : [
+            "Regular paragraph."
+         ],
+         "tag" : "p"
+      },
+      {
+         "cont" : "This text is to be handled as a paragraph of type note.\n",
+         "lang" : "NOTE",
+         "tag" : "special"
+      },
+      {
+         "tag" : "h3",
+         "text" : "End of page"
+      },
+      {
          "cont" : [
             "More text"
          ],

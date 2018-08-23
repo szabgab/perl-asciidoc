@@ -53,6 +53,22 @@ $ no language
   but it is still verbatim
 ----
 
+=== Special sections
+
+[CAUTION]
+====
+This text is to be handled as a paragraph of type caution.
+====
+
+Regular paragraph.
+
+[NOTE]
+====
+This text is to be handled as a paragraph of type note.
+====
+
+
+=== End of page
 
 More text
 '''
