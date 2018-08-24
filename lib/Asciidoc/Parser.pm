@@ -217,11 +217,11 @@ my $parser = qr {
 
     <rule: Header>           ^---$ <[Pair]>* ^---$
     <rule: Pair>             ^<Key>: <Value>$
-    <rule: Body>             <PageBody> <[Page]>*
+    <rule: Body>             <[Page]>*
     <rule: AfterBody>        ^'''.*
 
     <rule: Page>             <PageTitleLine> <PageBody>
-    <rule: PageTitleLine>    ^<PageTitleSize> <PageTitle>$
+    <rule: PageTitleLine>    ^<PageTitleSize> <PageTitle>$ | ^$
     <token: PageTitleSize>   ={2,3}
     <token: PageTitle>       \w.*?
 

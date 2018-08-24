@@ -7,6 +7,25 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
+                        "Paragraph" : "Fee _text_"
+                     },
+                     {
+                        "Paragraph" : "second line"
+                     },
+                     {
+                        "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
+                     },
+                     {
+                        "List" : ""
+                     }
+                  ]
+               },
+               "PageTitleLine" : ""
+            },
+            {
+               "PageBody" : {
+                  "BodyPart" : [
+                     {
                         "Paragraph" : "Free text. link:/local[Broken"
                      },
                      {
@@ -93,23 +112,7 @@
                   "PageTitleSize" : "==="
                }
             }
-         ],
-         "PageBody" : {
-            "BodyPart" : [
-               {
-                  "Paragraph" : "Fee _text_"
-               },
-               {
-                  "Paragraph" : "second line"
-               },
-               {
-                  "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
-               },
-               {
-                  "List" : ""
-               }
-            ]
-         }
+         ]
       },
       "Header" : {
          "Pair" : [
