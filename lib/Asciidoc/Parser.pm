@@ -213,16 +213,22 @@ my $parser = qr {
     <nocontext:>
     <ASCIIDOC>
 
-    <rule: ASCIIDOC> <Header> <Ifdef> <Body>
+    <rule: ASCIIDOC>         \A <Header> <Ifdef> <Body> \z
 
-    <rule: Header> ^---$ <[Pair]>* ^---$
-    <rule: Pair> ^<Key>: <Value>$
-    <rule: Body> .*
+    <rule: Header>           ^---$ <[Pair]>* ^---$
+    <rule: Pair>             ^<Key>: <Value>$
+    <rule: Body>             <PageBody> <[Page]>*
 
-    <rule: Ifdef> ^ifdef:: .*?  endif::\[\]$
+    <rule: Page>             <PageTitleLine> <PageBody>
+    <rule: PageTitleLine>    ^={2,3} <PageTitle>$
+    <token: PageTitle>       \w.*?
 
-    <token: Key> \w+
-    <token: Value> .*?
+    <rule: PageBody>         .*?
+
+    <rule: Ifdef>            ^ifdef:: .*?  endif::\[\]$
+
+    <token: Key>             \w+
+    <token: Value>           .*?
 
 }xsm;
 
