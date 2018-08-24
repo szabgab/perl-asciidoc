@@ -1,6 +1,6 @@
 {
    "ASCIIDOC" : {
-      "Body" : "ifdef::backend-html5[]\n:description:\n:author:\n:email: address@googlegroups.com\n:sectanchors:\n:toc: left\n:notitle:\nendif::[]\n\n\nFee _text_\nsecond line\n\nMore _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more\n\n== Title with 2 equal characters\n\nFree text. link:/local[Broken\nTitle] postfix.\n\n* first list item\n* second list item\n\n////\nsome comment\n\n3rd line of comment\n////\n\n=== Title with 3 equal characters\n\n[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----\n\n[source, perl]\n----\nuse strict;\nuse warnings;\n----\n\n[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----\n\n=== Special sections\n\n[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n====\n\nRegular paragraph.\n\n[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n====\n\n\n=== End of page\n\nMore text\n'''\n++++\ninclude::_partials/_footer.html[]\n++++\n",
+      "Body" : "Fee _text_\nsecond line\n\nMore _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more\n\n== Title with 2 equal characters\n\nFree text. link:/local[Broken\nTitle] postfix.\n\n* first list item\n* second list item\n\n////\nsome comment\n\n3rd line of comment\n////\n\n=== Title with 3 equal characters\n\n[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----\n\n[source, perl]\n----\nuse strict;\nuse warnings;\n----\n\n[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----\n\n=== Special sections\n\n[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n====\n\nRegular paragraph.\n\n[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n====\n\n\n=== End of page\n\nMore text\n'''\n++++\ninclude::_partials/_footer.html[]\n++++\n",
       "Header" : {
          "Pair" : [
             {
@@ -16,6 +16,7 @@
                "Value" : "doc"
             }
          ]
-      }
+      },
+      "Ifdef" : "ifdef::backend-html5[]\n:description:\n:author:\n:email: address@googlegroups.com\n:sectanchors:\n:toc: left\n:notitle:\nendif::[]"
    }
 }
