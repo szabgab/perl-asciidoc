@@ -16,7 +16,7 @@
                         "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
                      },
                      {
-                        "List" : ""
+                        "Paragraph" : ""
                      }
                   ]
                },
@@ -43,7 +43,7 @@
                         "Comment" : "////\nsome comment\n\n3rd line of comment\n////"
                      },
                      {
-                        "List" : ""
+                        "Paragraph" : ""
                      }
                   ]
                },
@@ -65,7 +65,7 @@
                         "Source" : "[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----"
                      },
                      {
-                        "List" : ""
+                        "Paragraph" : ""
                      }
                   ]
                },
@@ -87,7 +87,7 @@
                         "Special" : "[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n===="
                      },
                      {
-                        "List" : ""
+                        "Paragraph" : ""
                      }
                   ]
                },
@@ -103,7 +103,7 @@
                         "Paragraph" : "More text"
                      },
                      {
-                        "List" : ""
+                        "Paragraph" : ""
                      }
                   ]
                },
