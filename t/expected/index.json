@@ -4,35 +4,112 @@
       "Body" : {
          "Page" : [
             {
-               "PageBody" : "Free text. link:/local[Broken\nTitle] postfix.\n\n* first list item\n* second list item\n\n////\nsome comment\n\n3rd line of comment\n////",
+               "PageBody" : {
+                  "BodyPart" : [
+                     {
+                        "Paragraph" : "Free text. link:/local[Broken"
+                     },
+                     {
+                        "Paragraph" : "Title] postfix."
+                     },
+                     {
+                        "List" : {
+                           "ListItem" : [
+                              "* first list item",
+                              "\n* second list item"
+                           ]
+                        }
+                     },
+                     {
+                        "Comment" : "////\nsome comment\n\n3rd line of comment\n////"
+                     },
+                     {
+                        "List" : ""
+                     }
+                  ]
+               },
                "PageTitleLine" : {
                   "PageTitle" : "Title with 2 equal characters",
                   "PageTitleSize" : "=="
                }
             },
             {
-               "PageBody" : "[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----\n\n[source, perl]\n----\nuse strict;\nuse warnings;\n----\n\n[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----",
+               "PageBody" : {
+                  "BodyPart" : [
+                     {
+                        "Source" : "[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----"
+                     },
+                     {
+                        "Source" : "[source, perl]\n----\nuse strict;\nuse warnings;\n----"
+                     },
+                     {
+                        "Source" : "[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----"
+                     },
+                     {
+                        "List" : ""
+                     }
+                  ]
+               },
                "PageTitleLine" : {
                   "PageTitle" : "Title with 3 equal characters",
                   "PageTitleSize" : "==="
                }
             },
             {
-               "PageBody" : "[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n====\n\nRegular paragraph.\n\n[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n====",
+               "PageBody" : {
+                  "BodyPart" : [
+                     {
+                        "Special" : "[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n===="
+                     },
+                     {
+                        "Paragraph" : "Regular paragraph."
+                     },
+                     {
+                        "Special" : "[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n===="
+                     },
+                     {
+                        "List" : ""
+                     }
+                  ]
+               },
                "PageTitleLine" : {
                   "PageTitle" : "Special sections",
                   "PageTitleSize" : "==="
                }
             },
             {
-               "PageBody" : "More text",
+               "PageBody" : {
+                  "BodyPart" : [
+                     {
+                        "Paragraph" : "More text"
+                     },
+                     {
+                        "List" : ""
+                     }
+                  ]
+               },
                "PageTitleLine" : {
                   "PageTitle" : "End of page",
                   "PageTitleSize" : "==="
                }
             }
          ],
-         "PageBody" : "Fee _text_\nsecond line\n\nMore _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
+         "PageBody" : {
+            "BodyPart" : [
+               {
+                  "Paragraph" : "Fee _text_"
+               },
+               {
+                  "Paragraph" : "second line"
+               },
+               {
+                  "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
+               },
+               {
+                  "List" : ""
+               }
+            ]
+         }
       },
       "Header" : {
          "Pair" : [
