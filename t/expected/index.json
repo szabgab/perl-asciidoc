@@ -5,25 +5,29 @@
             {
                "PageBody" : "Free text. link:/local[Broken\nTitle] postfix.\n\n* first list item\n* second list item\n\n////\nsome comment\n\n3rd line of comment\n////",
                "PageTitleLine" : {
-                  "PageTitle" : "Title with 2 equal characters"
+                  "PageTitle" : "Title with 2 equal characters",
+                  "PageTitleSize" : "=="
                }
             },
             {
                "PageBody" : "[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----\n\n[source, perl]\n----\nuse strict;\nuse warnings;\n----\n\n[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----",
                "PageTitleLine" : {
-                  "PageTitle" : "Title with 3 equal characters"
+                  "PageTitle" : "Title with 3 equal characters",
+                  "PageTitleSize" : "==="
                }
             },
             {
                "PageBody" : "[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n====\n\nRegular paragraph.\n\n[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n====",
                "PageTitleLine" : {
-                  "PageTitle" : "Special sections"
+                  "PageTitle" : "Special sections",
+                  "PageTitleSize" : "==="
                }
             },
             {
                "PageBody" : "More text\n'''\n++++\ninclude::_partials/_footer.html[]\n++++",
                "PageTitleLine" : {
-                  "PageTitle" : "End of page"
+                  "PageTitle" : "End of page",
+                  "PageTitleSize" : "==="
                }
             }
          ],
