@@ -1,5 +1,6 @@
 {
    "ASCIIDOC" : {
+      "AfterBody" : "'''\n++++\ninclude::_partials/_footer.html[]\n++++\n",
       "Body" : {
          "Page" : [
             {
@@ -24,7 +25,7 @@
                }
             },
             {
-               "PageBody" : "More text\n'''\n++++\ninclude::_partials/_footer.html[]\n++++",
+               "PageBody" : "More text",
                "PageTitleLine" : {
                   "PageTitle" : "End of page",
                   "PageTitleSize" : "==="

@@ -213,11 +213,12 @@ my $parser = qr {
     <nocontext:>
     <ASCIIDOC>
 
-    <rule: ASCIIDOC>         \A <Header> <Ifdef> <Body> \z
+    <rule: ASCIIDOC>         \A <Header> <Ifdef> <Body> <AfterBody> \z
 
     <rule: Header>           ^---$ <[Pair]>* ^---$
     <rule: Pair>             ^<Key>: <Value>$
     <rule: Body>             <PageBody> <[Page]>*
+    <rule: AfterBody>        ^'''.*
 
     <rule: Page>             <PageTitleLine> <PageBody>
     <rule: PageTitleLine>    ^<PageTitleSize> <PageTitle>$
