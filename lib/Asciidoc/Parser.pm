@@ -205,6 +205,31 @@ sub handle_source {
     return;
 }
 
+sub parse_file2 {
+    my ($self, $filename) = @_;
+
+use Regexp::Grammars;
+my $parser = qr {
+    <nocontext:>
+    <ASCIIDOC>
+
+    <rule: ASCIIDOC> <paragraph>
+
+    <rule: paragraph> .*
+}xm;
+
+    my $input;
+    {
+        open my $fh, '<:encoding(UTF-8)', $filename or die;
+        local $/ = undef;
+        $input = <$fh>;
+    }
+
+    if ($input =~ $parser) {
+        return \%/;
+    }
+    return;
+}
 
 1;
 

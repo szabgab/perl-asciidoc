@@ -7,7 +7,7 @@ use Asciidoc::Parser;
 my @cases = glob "t/input/*.adoc";
 #diag explain \@cases;
 
-plan tests => 1 + @cases;
+plan tests => 1 + 2*@cases;
 
 my $p = Asciidoc::Parser->new;
 isa_ok $p, 'Asciidoc::Parser';
@@ -15,6 +15,13 @@ isa_ok $p, 'Asciidoc::Parser';
 foreach my $infile (@cases) {
     (my $outfile = $infile) =~ s{/input/([^/]*)\.adoc$}{/output/$1.json};
     my $parsed = $p->parse_file($infile);
+    my $expected = decode_json slurp($outfile);
+    is_deeply $parsed, $expected, $infile;
+}
+
+foreach my $infile (@cases) {
+    (my $outfile = $infile) =~ s{/input/([^/]*)\.adoc$}{/expected/$1.json};
+    my $parsed = $p->parse_file2($infile);
     my $expected = decode_json slurp($outfile);
     is_deeply $parsed, $expected, $infile;
 }

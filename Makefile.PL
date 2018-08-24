@@ -14,5 +14,6 @@ WriteMakefile(
 	PREREQ_PM => {
 		'Test::More'          => 0,
 		'JSON'                => 0,
+		'Regexp::Grammars'    => 0,
 	},
 );
