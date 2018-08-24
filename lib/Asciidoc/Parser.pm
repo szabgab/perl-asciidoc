@@ -213,10 +213,11 @@ my $parser = qr {
     <nocontext:>
     <ASCIIDOC>
 
-    <rule: ASCIIDOC> <paragraph>
+    <rule: ASCIIDOC> <Header> <Body>
 
-    <rule: paragraph> .*
-}xm;
+    <rule: Header> ^--- .*? ^---
+    <rule: Body> .*
+}xsm;
 
     my $input;
     {
