@@ -215,8 +215,13 @@ my $parser = qr {
 
     <rule: ASCIIDOC> <Header> <Body>
 
-    <rule: Header> ^--- .*? ^---
+    <rule: Header> ^---$ <[Pair]>* ^---$
+    <rule: Pair> ^<Key>: <Value>$
     <rule: Body> .*
+
+    <token: Key> \w+
+    <token: Value> .*?
+
 }xsm;
 
     my $input;
