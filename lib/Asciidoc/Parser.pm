@@ -229,7 +229,7 @@ my $parser = qr {
     <rule: BodyPart>         <List> | <Comment> | <Source> | <Special> | <Paragraph>
  
     <rule: Paragraph>        .*?
-    <rule: List>             <[ListItem]>+
+    <rule: List>             <[ListItem]>+ % <_NL=(\n)>
     <rule: ListItem>         ^ \* .*?$
     <rule: Comment>          ^//// <CommentText>  ^////
     <rule: CommentText>      .*?

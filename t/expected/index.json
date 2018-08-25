@@ -29,7 +29,7 @@
                         "List" : {
                            "ListItem" : [
                               "* first list item",
-                              "\n* second list item"
+                              "* second list item"
                            ]
                         }
                      },
