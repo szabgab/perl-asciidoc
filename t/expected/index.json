@@ -34,7 +34,9 @@
                         }
                      },
                      {
-                        "Comment" : "////\nsome comment\n\n3rd line of comment\n////"
+                        "Comment" : {
+                           "CommentText" : "some comment\n\n3rd line of comment"
+                        }
                      },
                      {
                         "Paragraph" : ""

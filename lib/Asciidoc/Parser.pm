@@ -231,7 +231,9 @@ my $parser = qr {
     <rule: Paragraph>        .*?
     <rule: List>             <[ListItem]>+
     <rule: ListItem>         ^ \* .*?$
-    <rule: Comment>          ^//// .*?  ^////
+    <rule: Comment>          ^//// <CommentText>  ^////
+    <rule: CommentText>      .*?
+
     <rule: Source>           ^ \[ source  <Source_Language>? \] $ ^----$ <Source_Text> ^----$
     <rule: Source_Language>  <_Comma>  <Language=(\w+)>
     <rule: _Comma>            ,\s*
