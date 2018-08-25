@@ -230,10 +230,10 @@ my $parser = qr {
  
     <rule: Paragraph>        .*?
     <rule: List>             <[ListItem]>+
-    <rule: ListItem>         ^\*\s+.*?$
-    <rule: Comment>          ^////.*?////
-    <rule: Source>           ^\[source(,\s*\w+)?\]\n----.*?^----$
-    <rule: Special>          ^\[(CAUTION|NOTE)\]\n====.*?^====$
+    <rule: ListItem>         ^ \* .*?$
+    <rule: Comment>          ^//// .*?  ^////
+    <rule: Source>           ^\[source(,\s*\w+)?\] $ ^----$ .*? ^----$
+    <rule: Special>          ^  \[(CAUTION|NOTE)\] $ ^====$ .*?  ^====$
 
     <rule: Ifdef>            ^ifdef:: .*?  endif::\[\]$
 
