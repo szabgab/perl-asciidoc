@@ -7,10 +7,53 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : "Fee _text_\nsecond line"
+                        "Paragraph" : {
+                           "Text" : {
+                              "Section" : [
+                                 {
+                                    "FreeText" : "Fee "
+                                 },
+                                 {
+                                    "Underscore" : "_text_"
+                                 },
+                                 {
+                                    "FreeText" : "second line"
+                                 },
+                                 {
+                                    "FreeText" : ""
+                                 }
+                              ]
+                           }
+                        }
                      },
                      {
-                        "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
+                        "Paragraph" : {
+                           "Text" : {
+                              "Section" : [
+                                 {
+                                    "FreeText" : "More "
+                                 },
+                                 {
+                                    "Underscore" : "_text_"
+                                 },
+                                 {
+                                    "FreeText" : "and an internal link: "
+                                 },
+                                 {
+                                    "LinkA" : {
+                                       "LinkName" : "Extend Asciidoc",
+                                       "LinkURL" : "doc/developer#"
+                                    }
+                                 },
+                                 {
+                                    "FreeText" : "another link:../install[Other Link] and more"
+                                 },
+                                 {
+                                    "FreeText" : ""
+                                 }
+                              ]
+                           }
+                        }
                      },
                      {
                         "Paragraph" : ""
@@ -23,7 +66,18 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : "Free text. link:/local[Broken\nTitle] postfix."
+                        "Paragraph" : {
+                           "Text" : {
+                              "Section" : [
+                                 {
+                                    "FreeText" : "Free text. link:/local[Broken\nTitle] postfix."
+                                 },
+                                 {
+                                    "FreeText" : ""
+                                 }
+                              ]
+                           }
+                        }
                      },
                      {
                         "List" : {
@@ -92,7 +146,18 @@
                         }
                      },
                      {
-                        "Paragraph" : "Regular paragraph."
+                        "Paragraph" : {
+                           "Text" : {
+                              "Section" : [
+                                 {
+                                    "FreeText" : "Regular paragraph."
+                                 },
+                                 {
+                                    "FreeText" : ""
+                                 }
+                              ]
+                           }
+                        }
                      },
                      {
                         "Special" : {
@@ -114,7 +179,18 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : "More text"
+                        "Paragraph" : {
+                           "Text" : {
+                              "Section" : [
+                                 {
+                                    "FreeText" : "More text"
+                                 },
+                                 {
+                                    "FreeText" : ""
+                                 }
+                              ]
+                           }
+                        }
                      }
                   ]
                },

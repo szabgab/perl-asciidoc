@@ -1,6 +1,7 @@
 package Asciidoc::Parser;
 use strict;
 use warnings;
+use Data::Dumper qw(Dumper);
 
 our $VERSION = '0.01';
 
@@ -246,7 +247,20 @@ my $parser = qr {
 
     <token: Key>             \w+
     <token: Value>           .*?
+}xsm;
 
+my $text_parser = qr {
+    <nocontext:>
+    <Text>
+
+    <rule: Text>              <[Section]>*
+    <rule: Section>           <Underscore> | <LinkA> | < FreeText>
+    <rule: Underscore>       _ [^_]* _
+    <rule: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
+    <rule: LinkB>            link:<LinkName>\[<LinkURL>\]
+    <rule: LinkURL>          [^,]*?
+    <rule: LinkName>         [^>]*?
+    <rule: FreeText>          [^_<]*
 }xsm;
 
     my $input;
@@ -257,7 +271,23 @@ my $parser = qr {
     }
 
     if ($input =~ $parser) {
-        return \%/;
+        my %dom = %/;
+        for my $page (@{ $dom{ASCIIDOC}{Body}{Page} }) {
+            next if not $page->{PageBody};
+            next if not $page->{PageBody}{BodyPart};
+            for my $bp (@{ $page->{PageBody}{BodyPart} }) {
+                next if not exists $bp->{Paragraph};
+                if ($bp->{Paragraph} eq '') {
+                    # remove! 
+                } else {
+                    if  ($bp->{Paragraph} =~ $text_parser) {
+                        $bp->{Paragraph} = \%/;
+                    }
+                }
+            }
+        }
+
+        return \%dom;
     }
     return;
 }
