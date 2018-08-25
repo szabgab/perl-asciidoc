@@ -7,10 +7,7 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : "Fee _text_"
-                     },
-                     {
-                        "Paragraph" : "second line"
+                        "Paragraph" : "Fee _text_\nsecond line"
                      },
                      {
                         "Paragraph" : "More _text_  and an internal link: <<doc/developer#,Extend Asciidoc>> another link:../install[Other Link] and more"
@@ -26,10 +23,7 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : "Free text. link:/local[Broken"
-                     },
-                     {
-                        "Paragraph" : "Title] postfix."
+                        "Paragraph" : "Free text. link:/local[Broken\nTitle] postfix."
                      },
                      {
                         "List" : {
@@ -101,9 +95,6 @@
                   "BodyPart" : [
                      {
                         "Paragraph" : "More text"
-                     },
-                     {
-                        "Paragraph" : ""
                      }
                   ]
                },
