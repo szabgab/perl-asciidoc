@@ -50,13 +50,25 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Source" : "[source,bash]\n----\nbrew install jenkins\n  verbatim text for code\n----"
+                        "Source" : {
+                           "Source_Language" : {
+                              "Language" : "bash"
+                           },
+                           "Source_Text" : "brew install jenkins\n  verbatim text for code"
+                        }
                      },
                      {
-                        "Source" : "[source, perl]\n----\nuse strict;\nuse warnings;\n----"
+                        "Source" : {
+                           "Source_Language" : {
+                              "Language" : "perl"
+                           },
+                           "Source_Text" : "use strict;\nuse warnings;"
+                        }
                      },
                      {
-                        "Source" : "[source]\n----\n$ no language\n  provide\n  but it is still verbatim\n----"
+                        "Source" : {
+                           "Source_Text" : "$ no language\n  provide\n  but it is still verbatim"
+                        }
                      },
                      {
                         "Paragraph" : ""
