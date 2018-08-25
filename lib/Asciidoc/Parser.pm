@@ -225,7 +225,7 @@ my $parser = qr {
     <token: PageTitleSize>   ={2,3}
     <token: PageTitle>       \w.*?
 
-    <rule: PageBody>         <[BodyPart]>* % <_Sep=(\n\n)>
+    <rule: PageBody>         <[BodyPart]>* % <_Sep=(\n\s*\n)>
     <rule: BodyPart>         <List> | <Comment> | <Source> | <Special> | <Paragraph>
  
     <rule: Paragraph>        .*?
