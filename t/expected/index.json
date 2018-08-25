@@ -72,13 +72,19 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Special" : "[CAUTION]\n====\nThis text is to be handled as a paragraph of type caution.\n===="
+                        "Special" : {
+                           "Special_Text" : "This text is to be handled as a paragraph of type caution.",
+                           "Special_Title" : "CAUTION"
+                        }
                      },
                      {
                         "Paragraph" : "Regular paragraph."
                      },
                      {
-                        "Special" : "[NOTE]\n====\nThis text is to be handled as a paragraph of type note.\n===="
+                        "Special" : {
+                           "Special_Text" : "This text is to be handled as a paragraph of type note.",
+                           "Special_Title" : "NOTE"
+                        }
                      },
                      {
                         "Paragraph" : ""
