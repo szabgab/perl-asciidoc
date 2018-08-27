@@ -7,56 +7,29 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : {
+                        "Text" : {
+                           "FreeText" : "Fee ",
                            "Text" : {
-                              "Section" : [
-                                 {
-                                    "FreeText" : "Fee "
+                              "FreeText" : "\nsecond line\n\nMore ",
+                              "Text" : {
+                                 "FreeText" : "  and an internal link: ",
+                                 "LinkA" : {
+                                    "LinkName" : "Extend Asciidoc",
+                                    "LinkURL" : "doc/developer#"
                                  },
-                                 {
-                                    "Underscore" : "_text_"
-                                 },
-                                 {
-                                    "FreeText" : "second line"
-                                 },
-                                 {
-                                    "FreeText" : ""
+                                 "Text" : {
+                                    "FreeText" : " another link:../install[Other Link] and more"
                                  }
-                              ]
-                           }
+                              },
+                              "Underscore" : "_text_"
+                           },
+                           "Underscore" : "_text_"
                         }
                      },
                      {
-                        "Paragraph" : {
-                           "Text" : {
-                              "Section" : [
-                                 {
-                                    "FreeText" : "More "
-                                 },
-                                 {
-                                    "Underscore" : "_text_"
-                                 },
-                                 {
-                                    "FreeText" : "and an internal link: "
-                                 },
-                                 {
-                                    "LinkA" : {
-                                       "LinkName" : "Extend Asciidoc",
-                                       "LinkURL" : "doc/developer#"
-                                    }
-                                 },
-                                 {
-                                    "FreeText" : "another link:../install[Other Link] and more"
-                                 },
-                                 {
-                                    "FreeText" : ""
-                                 }
-                              ]
-                           }
+                        "Text" : {
+                           "FreeText" : ""
                         }
-                     },
-                     {
-                        "Paragraph" : ""
                      }
                   ]
                },
@@ -66,17 +39,8 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : {
-                           "Text" : {
-                              "Section" : [
-                                 {
-                                    "FreeText" : "Free text. link:/local[Broken\nTitle] postfix."
-                                 },
-                                 {
-                                    "FreeText" : ""
-                                 }
-                              ]
-                           }
+                        "Text" : {
+                           "FreeText" : "Free text. link:/local[Broken\nTitle] postfix."
                         }
                      },
                      {
@@ -93,7 +57,9 @@
                         }
                      },
                      {
-                        "Paragraph" : ""
+                        "Text" : {
+                           "FreeText" : ""
+                        }
                      }
                   ]
                },
@@ -127,7 +93,9 @@
                         }
                      },
                      {
-                        "Paragraph" : ""
+                        "Text" : {
+                           "FreeText" : ""
+                        }
                      }
                   ]
                },
@@ -146,17 +114,8 @@
                         }
                      },
                      {
-                        "Paragraph" : {
-                           "Text" : {
-                              "Section" : [
-                                 {
-                                    "FreeText" : "Regular paragraph."
-                                 },
-                                 {
-                                    "FreeText" : ""
-                                 }
-                              ]
-                           }
+                        "Text" : {
+                           "FreeText" : "Regular paragraph."
                         }
                      },
                      {
@@ -166,7 +125,9 @@
                         }
                      },
                      {
-                        "Paragraph" : ""
+                        "Text" : {
+                           "FreeText" : ""
+                        }
                      }
                   ]
                },
@@ -179,17 +140,8 @@
                "PageBody" : {
                   "BodyPart" : [
                      {
-                        "Paragraph" : {
-                           "Text" : {
-                              "Section" : [
-                                 {
-                                    "FreeText" : "More text"
-                                 },
-                                 {
-                                    "FreeText" : ""
-                                 }
-                              ]
-                           }
+                        "Text" : {
+                           "FreeText" : "More text"
                         }
                      }
                   ]

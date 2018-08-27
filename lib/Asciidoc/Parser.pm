@@ -227,9 +227,8 @@ my $parser = qr {
     <token: PageTitle>       \w.*?
 
     <rule: PageBody>         <[BodyPart]>* % <_Sep=(\n\s*\n)>
-    <rule: BodyPart>         <List> | <Comment> | <Source> | <Special> | <Paragraph>
+    <rule: BodyPart>         <List> | <Comment> | <Source> | <Special> | <Text>
  
-    <rule: Paragraph>        .*?
     <rule: List>             <[ListItem]>+ % <_NL=(\n)>
     <rule: ListItem>         ^ \* .*?$
     <rule: Comment>          ^//// <CommentText>  ^////
@@ -247,20 +246,28 @@ my $parser = qr {
 
     <token: Key>             \w+
     <token: Value>           .*?
+
+    <token: Text>       <FreeText> <Underscore> <Text> | <FreeText> <LinkA> <Text> | <FreeText>
+    <token: Underscore>       _ [^_]* _
+    <token: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
+    <token: LinkB>            link:<LinkName>\[<LinkURL>\]
+    <token: LinkURL>          [^,]*?
+    <token: LinkName>         [^>]*?
+    <token: FreeText>          .*?
+
 }xsm;
 
 my $text_parser = qr {
     <nocontext:>
     <Text>
 
-    <rule: Text>              <[Section]>*
-    <rule: Section>           <Underscore> | <LinkA> | < FreeText>
+    <rule: Text>           <Text> <Underscore> <Text> | <Text> <LinkA> <Text> | <FreeText>
     <rule: Underscore>       _ [^_]* _
     <rule: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
     <rule: LinkB>            link:<LinkName>\[<LinkURL>\]
     <rule: LinkURL>          [^,]*?
     <rule: LinkName>         [^>]*?
-    <rule: FreeText>          [^_<]*
+    <rule: FreeText>          .*
 }xsm;
 
     my $input;
@@ -271,23 +278,24 @@ my $text_parser = qr {
     }
 
     if ($input =~ $parser) {
-        my %dom = %/;
-        for my $page (@{ $dom{ASCIIDOC}{Body}{Page} }) {
-            next if not $page->{PageBody};
-            next if not $page->{PageBody}{BodyPart};
-            for my $bp (@{ $page->{PageBody}{BodyPart} }) {
-                next if not exists $bp->{Paragraph};
-                if ($bp->{Paragraph} eq '') {
-                    # remove! 
-                } else {
-                    if  ($bp->{Paragraph} =~ $text_parser) {
-                        $bp->{Paragraph} = \%/;
-                    }
-                }
-            }
-        }
-
-        return \%dom;
+        return \%/;
+#        my %dom = %/;
+#        for my $page (@{ $dom{ASCIIDOC}{Body}{Page} }) {
+#            next if not $page->{PageBody};
+#            next if not $page->{PageBody}{BodyPart};
+#            for my $bp (@{ $page->{PageBody}{BodyPart} }) {
+#                next if not exists $bp->{Paragraph};
+#                if ($bp->{Paragraph} eq '') {
+#                    # remove! 
+#                } else {
+#                    if  ($bp->{Paragraph} =~ $text_parser) {
+#                        $bp->{Paragraph} = \%/;
+#                    }
+#                }
+#            }
+#        }
+#
+#        return \%dom;
     }
     return;
 }
