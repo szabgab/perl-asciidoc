@@ -247,7 +247,7 @@ my $parser = qr {
     <token: Key>             \w+
     <token: Value>           .*?
 
-    <token: Text>       <FreeText> <Underscore> <Text> | <FreeText> <LinkA> <Text> | <FreeText>
+    <token: Text>            <FreeText> ( <Underscore> | <LinkA> ) <Text> | <FreeText>
     <token: Underscore>       _ [^_]* _
     <token: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
     <token: LinkB>            link:<LinkName>\[<LinkURL>\]
