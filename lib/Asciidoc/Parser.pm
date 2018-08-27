@@ -257,20 +257,7 @@ my $parser = qr {
 
 }xsm;
 
-my $text_parser = qr {
-    <nocontext:>
-    <Text>
-
-    <rule: Text>           <Text> <Underscore> <Text> | <Text> <LinkA> <Text> | <FreeText>
-    <rule: Underscore>       _ [^_]* _
-    <rule: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
-    <rule: LinkB>            link:<LinkName>\[<LinkURL>\]
-    <rule: LinkURL>          [^,]*?
-    <rule: LinkName>         [^>]*?
-    <rule: FreeText>          .*
-}xsm;
-
-    my $input;
+   my $input;
     {
         open my $fh, '<:encoding(UTF-8)', $filename or die;
         local $/ = undef;
@@ -279,23 +266,6 @@ my $text_parser = qr {
 
     if ($input =~ $parser) {
         return \%/;
-#        my %dom = %/;
-#        for my $page (@{ $dom{ASCIIDOC}{Body}{Page} }) {
-#            next if not $page->{PageBody};
-#            next if not $page->{PageBody}{BodyPart};
-#            for my $bp (@{ $page->{PageBody}{BodyPart} }) {
-#                next if not exists $bp->{Paragraph};
-#                if ($bp->{Paragraph} eq '') {
-#                    # remove! 
-#                } else {
-#                    if  ($bp->{Paragraph} =~ $text_parser) {
-#                        $bp->{Paragraph} = \%/;
-#                    }
-#                }
-#            }
-#        }
-#
-#        return \%dom;
     }
     return;
 }
