@@ -247,12 +247,14 @@ my $parser = qr {
     <token: Key>             \w+
     <token: Value>           .*?
 
-    <token: Text>            <FreeText> ( <Underscore> | <LinkA> ) <Text> | <FreeText>
+    <token: Text>            <FreeText> ( <Underscore> | <LinkA> )  <Text> | <FreeText>
     <token: Underscore>       _ [^_]* _
     <token: LinkA>            \<\<  <LinkURL> ,  <LinkName> \>\>
-    <token: LinkB>            link:<LinkName>\[<LinkURL>\]
+    <token: LinkB>            link:<LinkBName>\[<LinkBURL>\]
     <token: LinkURL>          [^,]*?
     <token: LinkName>         [^>]*?
+    <token: LinkBURL>         [^\]]*
+    <token: LinkBName>        [^\[]*
     <token: FreeText>          .*?
 
 }xsm;
