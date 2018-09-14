@@ -14,7 +14,7 @@ sub parse_file {
     my ($self, $filename) = @_;
     $self->{dom} = {};
 
-    open my $fh, '<:encoding(UTF-8)', $filename or die;
+    open my $fh, '<:encoding(UTF-8)', $filename or die "Could not open '$filename'";
     my $in_header;
     $self->{para} = '';
     while (my $line = <$fh>) {
